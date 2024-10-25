@@ -3,12 +3,11 @@ import cookie from "@/images/5473473.png"
 
 interface Props{
     totalCookies: number,
-    cookiesPerSecond?: number
-    onCookieClick: Function
+    onCookieClick: () => void,
     cps: number
 }
 
-export const CookieZone =({totalCookies, cookiesPerSecond = 0, onCookieClick, cps = 0}:Props) => {
+export const CookieZone =({totalCookies = 0, onCookieClick, cps = 0}:Props) => {
 
     return(
         <div className="h-full w-full bg-purple-700 flex flex-col items-center justify-center">

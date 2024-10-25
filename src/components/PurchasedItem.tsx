@@ -5,7 +5,7 @@ interface Props{
     item: ShopItemType
 }
 
-export const PurchasedItem = ({item, ...props}:Props) => {
+export const PurchasedItem = ({item}:Props) => {
     return(
         <div className="p-5 rounded-lg bg-white flex flex-col justify-center items-center max-h-80">
             <img src={item.image_url} className="rounded-full border"/>

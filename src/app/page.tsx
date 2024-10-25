@@ -27,7 +27,7 @@ export default function Home() {
   const handlePurchasedItem = (item: ShopItemType) => {
     setCookies(cookies - item.price)
 
-    let actualItems = [...purchasedItems]
+    const actualItems = [...purchasedItems]
     const itemIndex = actualItems.findIndex(o => o.id == item.id)
 
     actualItems[itemIndex].total++
@@ -45,10 +45,10 @@ export default function Home() {
   return (
     <div className="h-screen w-screen flex">
         <div className="left w-1/4 bg-pink-500">
-          <CookieZone totalCookies={cookies}cps={cookiesPerSecond}onCookieClick={()=> setCookies(cookies + 1) }cookiesPerSecond={30} /> 
+          <CookieZone totalCookies={cookies}cps={cookiesPerSecond}onCookieClick={()=> setCookies(cookies + 1) } /> 
         </div>
         <div className="center flex-1 bg-purple-500 grid grid-cols-4 gap-3 p-5">
-          {purchasedItems.filter(o => o.total > 0).map(item => <PurchasedItem item={item} />)}
+          {purchasedItems.filter(o => o.total > 0).map(item => <PurchasedItem item={item} key={item.id}/>)}
         </div>
         <div className="right w-1/4 bg-orange-500 flex flex-col gap-3 p-2">
         {purchasedItems.map(item =>
